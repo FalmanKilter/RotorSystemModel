@@ -11,13 +11,14 @@ switch nargin
     case 0
         % these are random values, replace with once optimised parameters
         % and switch off the mesh_known flag
-        NoN = [20 20];
+        NoN = [35 35];
     case 1
         % NoN = optimise_NoN();
         disp('Number of nodes optimised.');
 end
 
 mesh = linspace(0,1,NoN(1));
+
 delta_mesh = mesh(2)-mesh(1); 
 
 end

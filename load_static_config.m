@@ -24,5 +24,6 @@ mu = 1.1255e-3;         %dynamic viscosity for 15.5 C
 PresCond=0;             %ambient pressure condition
 
 operational_parameters=[omega mu PresCond];
+
 end
 

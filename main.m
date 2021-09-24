@@ -4,18 +4,24 @@ clc; clear; close all;
 %% load static configuration
 [geometry_params,...
     operational_params] = load_static_config();
+disp('Static configuration loaded.');
 
 %% initialise mesh
 [calc_mesh, delta_mesh] = initialise_mesh();
+disp('Calculation mesh initialised.');
 
 %% initialise radial gap - static calculation
 
-% initial position of the shaft centre in the bearing - non-dimensional, 
-% actual position in microns divided by mean radial gap, the first element
-% is along the horizontal axis and the second is along the vertical axis in
-% Cartesian coordinates
+% initial position of the shaft centre in the bearing - non-dimensional
+% init_position(1) - along horizontal axis,
+% init_position(2) - along vertical axis
 init_position = [0.5 0.5];
+[radial_gap, ...
+    d_radial_gap_di,...
+    d_radial_gap_dj] = initialise_radial_gap(init_position, calc_mesh, delta_mesh);
 
-radial_gap = repmat(1 - init_position(1)*sin(calc_mesh(:)*2*pi) - init_position(2)*cos(calc_mesh(:)*2*pi), 1, numel(calc_mesh));
+disp('Radial gap function initialised.')
 
-mesh(calc_mesh, calc_mesh,radial_gap);
+% mesh(calc_mesh, calc_mesh,radial_gap);
+
+

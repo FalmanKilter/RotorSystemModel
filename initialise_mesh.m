@@ -14,9 +14,11 @@ switch nargin
         NoN = [20 20];
     case 1
         % NoN = optimise_NoN();
+        disp('Number of nodes optimised.');
 end
 
 mesh = linspace(0,1,NoN(1));
-delta_mesh = mesh(2)-mesh(1);  
+delta_mesh = mesh(2)-mesh(1); 
+
 end
 
